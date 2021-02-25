@@ -8,7 +8,7 @@ Terraform code to deploy an AWS instance with CentOS 7 and bootstraping a LDAP i
 
 ### Pre-requisites
 * Create a terraform.auto.tvars file in the same location that all the terraform code
-* Create a .pem key in the AWS availability that you are deploying the EC2 instance
+* Create a .pem key in the AWS availability zone that you are deploying the EC2 instance
 
 ## Getting Started
 **Example**

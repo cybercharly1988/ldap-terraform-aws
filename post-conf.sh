@@ -15,29 +15,29 @@ sudo yum install -y expect
 # Install php ldap module
 #sudo yum install php70w-ldap --skip-broken -y
 
-cat <<'EOF' >> /tmp/setuserpw.exp
-#!/usr/bin/expect -f
-expect_user -re "(\[^ \]+) (\[^ \]+)\n"
-set user $expect_out(1,string)
-set pw   $expect_out(2,string)
-spawn slappasswd
-expect "New password:"
-send "$pw\r"
-expect "Re-enter new password:"
-send "$pw\r"
-expect eof
-EOF
+# cat <<'EOF' >> /tmp/setuserpw.exp
+# #!/usr/bin/expect -f
+# expect_user -re "(\[^ \]+) (\[^ \]+)\n"
+# set user $expect_out(1,string)
+# set pw   $expect_out(2,string)
+# spawn slappasswd
+# expect "New password:"
+# send "$pw\r"
+# expect "Re-enter new password:"
+# send "$pw\r"
+# expect eof
+# EOF
 
-sudo chmod +x /tmp/setuserpw.exp
-/tmp/setuserpw.exp <<!
-user1 f0xpass
-!
+# sudo chmod +x /tmp/setuserpw.exp
+# /tmp/setuserpw.exp <<!
+# user1 f0xpass
+# !
 
 #password for ldap will be f0xpass
 PASS=`slappasswd -s f0xpass`
 echo $PASS > /tmp/PASS.txt
 
 yum install -y wget
-wget 
+wget https://raw.githubusercontent.com/cybercharly1988/ldap-terraform-aws/master/ldap.sh -P /tmp/
 sudo chmod +x /tmp/ldap.sh
-sudo /tmp/ldap.sh f0xpass
+sudo /tmp/ldap.sh $PASS

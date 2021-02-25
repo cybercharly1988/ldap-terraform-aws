@@ -1,0 +1,60 @@
+#  Local .terraform directories
+**/.terraform*
+**/certs/*
+**/temp/
+**/temp/
+
+**/bootstrap_files/
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# .tfvars files
+*.tfvars
+
+# Ignore Backend Files
+backend.tf
+
+# Other files that should not be kept
+id_rsa*
+*.json
+*.zip
+*.pem
+#*.sh
+*.svg
+*.txt
+authcodes
+!files/authcodes
+
+*.log
+
+*.ignore
+
+## Git Attributes section
+* text=auto
+*.sh text eol=lf
+*.tf text eol=lf
+
+## Editor Configurations
+[*]
+end_of_line = lf
+charset = utf-8
+insert_final_newline = false
+trim_trailing_whitespace = true
+
+[*.tf]
+end_of_line = lf
+charset = utf-8
+indent_style = space
+indent_size = 2
+insert_final_newline = false
+trim_trailing_whitespace = true
+
+[*.rb]
+end_of_line = lf
+charset = utf-8
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
